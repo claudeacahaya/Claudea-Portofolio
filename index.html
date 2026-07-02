@@ -1,0 +1,1284 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claudea Cahaya Cinta | Portofolio</title>
+  <style>
+    :root {
+      --sage: #aeb873;
+      --sage-deep: #7f8d4f;
+      --pink: #efb8c5;
+      --pink-soft: #f8d9df;
+      --butter: #f2efa0;
+      --cream: #fffaf1;
+      --paper: #fffefd;
+      --panel: #f3f0ee;
+      --ink: #24222a;
+      --muted: #6f6a70;
+      --line: #ebe2df;
+      --shadow: 0 26px 80px rgba(61, 58, 48, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0;
+      background:
+        radial-gradient(circle at 10% 18%, rgba(255, 250, 241, 0.52), transparent 20rem),
+        radial-gradient(circle at 86% 8%, rgba(242, 239, 160, 0.38), transparent 19rem),
+        var(--sage);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 28px auto 44px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-bottom: -5px;
+      padding: 0 28px;
+    }
+
+    .tabs a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 106px;
+      min-height: 48px;
+      border-radius: 18px 18px 0 0;
+      padding: 0 18px;
+      background: var(--pink);
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(95, 85, 70, 0.12);
+    }
+
+    .tabs a:nth-child(2),
+    .tabs a:nth-child(4) {
+      background: var(--pink-soft);
+      color: #9d6371;
+    }
+
+    .resume-board {
+      overflow: hidden;
+      border: 12px solid white;
+      border-radius: 48px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 570px;
+      padding: 28px;
+    }
+
+    .hero-cover {
+      position: relative;
+      min-height: 310px;
+      overflow: hidden;
+      border-radius: 30px 30px 8px 8px;
+      background: var(--sage-deep);
+    }
+
+    .hero-cover img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      object-position: center 34%;
+      filter: saturate(0.86) contrast(0.96) brightness(0.86);
+    }
+
+    .hero-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(42, 47, 31, 0.44), rgba(42, 47, 31, 0.08));
+    }
+
+    .hero-title {
+      position: absolute;
+      left: 220px;
+      right: 40px;
+      top: 76px;
+      z-index: 2;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      color: var(--butter);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(52px, 8vw, 104px);
+      line-height: 0.86;
+      font-weight: 900;
+      text-shadow: 0 6px 18px rgba(38, 40, 28, 0.2);
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: #df9fad;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 4.7vw, 60px);
+      line-height: 0.98;
+      font-weight: 900;
+    }
+
+    h3 {
+      margin-bottom: 9px;
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.22;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.68;
+    }
+
+    .subtitle {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 9px 15px;
+      background: rgba(255, 250, 241, 0.9);
+      color: #5e6640;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .profile-photo {
+      position: absolute;
+      left: 70px;
+      top: 194px;
+      z-index: 4;
+      width: 174px;
+      height: 174px;
+      border: 10px solid white;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 18px 44px rgba(73, 68, 58, 0.22);
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .hero-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 250px;
+      gap: 28px;
+      padding: 28px 18px 0;
+    }
+
+    .intro-panel {
+      display: grid;
+      gap: 18px;
+    }
+
+    .intro-copy {
+      padding: 24px;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      color: #c88d9b;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .button-row,
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      padding: 0 17px;
+      background: var(--pink);
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(168, 124, 135, 0.16);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(168, 124, 135, 0.24);
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      background: white;
+      color: #6f6a70;
+    }
+
+    .edu-pop {
+      align-self: start;
+      margin-top: 24px;
+      padding: 22px;
+      border-radius: 26px;
+      background: white;
+      box-shadow: 0 18px 50px rgba(87, 79, 68, 0.14);
+    }
+
+    .edu-pop h3 {
+      color: #d49baa;
+    }
+
+    .edu-item {
+      padding: 13px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .edu-item:first-of-type {
+      border-top: 0;
+    }
+
+    .edu-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .edu-item span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    section {
+      padding: 42px 28px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.6fr);
+      gap: 26px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+    }
+
+    .cream-band {
+      margin: 0 28px;
+      border-radius: 34px;
+      background: #fff7ed;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .skill-list-card {
+      position: relative;
+      overflow: hidden;
+      padding: 32px 34px;
+      background:
+        radial-gradient(circle at 96% 12%, rgba(242, 239, 160, 0.8), transparent 10rem),
+        white;
+    }
+
+    .skill-list-card::after {
+      content: "";
+      position: absolute;
+      right: -52px;
+      bottom: -58px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: rgba(239, 184, 197, 0.46);
+    }
+
+    .skill-list-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .mini-list h3 {
+      color: #d49baa;
+      font-size: 21px;
+    }
+
+    .mini-list ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mini-list li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 9px;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .mini-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    .tools-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      padding: 32px 34px;
+      background:
+        linear-gradient(160deg, #fffdf7, #f7e5e8);
+    }
+
+    .tools-card h3 {
+      color: #d49baa;
+    }
+
+    .tool-logo-grid {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 560px;
+      margin-top: 24px;
+      border-radius: 8px;
+      box-shadow: 0 12px 26px rgba(145, 91, 106, 0.14);
+    }
+
+    .tool-logo {
+      position: relative;
+      display: grid;
+      min-height: 78px;
+      place-items: center;
+      border-radius: 6px;
+      background: #ef7ea7;
+      box-shadow: 0 8px 18px rgba(145, 91, 106, 0.12);
+    }
+
+    .tool-logo:nth-child(even) {
+      background: #f3a8ad;
+    }
+
+    .tool-logo::after {
+      content: attr(aria-label);
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    .logo-figma {
+      width: 34px;
+      height: 48px;
+      display: grid;
+      grid-template-columns: repeat(2, 17px);
+      grid-template-rows: repeat(3, 16px);
+    }
+
+    .logo-figma span {
+      display: block;
+    }
+
+    .logo-figma span:nth-child(1) {
+      border-radius: 14px 0 0 14px;
+      background: #f24e1e;
+    }
+
+    .logo-figma span:nth-child(2) {
+      border-radius: 0 14px 14px 0;
+      background: #ff7262;
+    }
+
+    .logo-figma span:nth-child(3) {
+      border-radius: 14px 0 0 14px;
+      background: #a259ff;
+    }
+
+    .logo-figma span:nth-child(4) {
+      border-radius: 0 14px 14px 0;
+      background: #1abcfe;
+    }
+
+    .logo-figma span:nth-child(5) {
+      border-radius: 14px;
+      background: #0acf83;
+    }
+
+    .logo-canva,
+    .logo-word,
+    .logo-powerpoint,
+    .logo-sheets,
+    .logo-mysql,
+    .logo-php,
+    .logo-html,
+    .logo-css,
+    .logo-flutter,
+    .logo-python,
+    .logo-java,
+    .logo-supabase,
+    .logo-vscode,
+    .logo-xampp {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      color: white;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .logo-vscode {
+      position: relative;
+      width: 58px;
+      height: 50px;
+      background: transparent;
+    }
+
+    .logo-vscode::before,
+    .logo-vscode::after {
+      content: "";
+      position: absolute;
+      background: #168fcf;
+      transform: skewY(-34deg);
+    }
+
+    .logo-vscode::before {
+      left: 6px;
+      top: 13px;
+      width: 28px;
+      height: 24px;
+      clip-path: polygon(0 50%, 60% 0, 100% 14%, 42% 50%, 100% 86%, 60% 100%);
+    }
+
+    .logo-vscode::after {
+      right: 8px;
+      top: 5px;
+      width: 22px;
+      height: 42px;
+      border-radius: 6px;
+    }
+
+    .logo-mysql {
+      width: auto;
+      height: auto;
+      color: #00758f;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .logo-mysql span {
+      color: #f29111;
+    }
+
+    .logo-php {
+      width: 66px;
+      height: 38px;
+      border-radius: 50%;
+      border: 3px solid #59608c;
+      background: #aeb4da;
+      color: #1f243a;
+      font-size: 24px;
+      font-style: italic;
+      text-shadow: 1px 1px 0 white;
+    }
+
+    .logo-html {
+      position: relative;
+      width: 56px;
+      height: 64px;
+      background: #e44d26;
+      clip-path: polygon(8% 0, 92% 0, 84% 88%, 50% 100%, 16% 88%);
+      color: white;
+      font-size: 30px;
+    }
+
+    .logo-html::before {
+      content: "HTML";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #1d1d1f;
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .logo-css {
+      position: relative;
+      width: 50px;
+      height: 62px;
+      border-radius: 8px;
+      background: #244d8f;
+      box-shadow: 12px 12px 0 #2aa9e0;
+      color: white;
+      font-size: 16px;
+    }
+
+    .logo-flutter {
+      position: relative;
+      width: 66px;
+      height: 66px;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .logo-flutter::before,
+    .logo-flutter::after {
+      content: "";
+      position: absolute;
+      background: #45c4f3;
+      transform: none;
+    }
+
+    .logo-flutter::before {
+      width: 48px;
+      height: 18px;
+      left: 5px;
+      top: 12px;
+      clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+      transform: rotate(-45deg);
+    }
+
+    .logo-flutter::after {
+      width: 50px;
+      height: 18px;
+      left: 18px;
+      top: 34px;
+      background: linear-gradient(90deg, #2bb8ee 0 48%, #46c6f4 48% 100%);
+      clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+      transform: rotate(-45deg);
+    }
+
+    .logo-flutter span {
+      position: absolute;
+      left: 33px;
+      top: 45px;
+      width: 34px;
+      height: 18px;
+      background: #075a9c;
+      clip-path: polygon(0 0, 58% 0, 100% 100%, 42% 100%);
+      transform: rotate(45deg);
+    }
+
+    .logo-python {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background: transparent;
+    }
+
+    .logo-python::before,
+    .logo-python::after {
+      content: "";
+      position: absolute;
+      width: 38px;
+      height: 32px;
+      border-radius: 14px 14px 8px 8px;
+    }
+
+    .logo-python::before {
+      left: 6px;
+      top: 5px;
+      background: #3572a5;
+    }
+
+    .logo-python::after {
+      right: 6px;
+      bottom: 5px;
+      background: #ffd343;
+      border-radius: 8px 8px 14px 14px;
+    }
+
+    .logo-java {
+      width: auto;
+      height: auto;
+      color: #f58219;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .logo-java::before {
+      content: "~";
+      display: block;
+      color: #5382a1;
+      font-size: 42px;
+      line-height: 0.5;
+      transform: rotate(-18deg);
+    }
+
+    .logo-supabase {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      background: transparent;
+    }
+
+    .logo-supabase::before,
+    .logo-supabase::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      width: 30px;
+      height: 30px;
+      background: #3ecf8e;
+      clip-path: polygon(0 0, 100% 0, 30% 100%);
+    }
+
+    .logo-supabase::before {
+      top: 4px;
+    }
+
+    .logo-supabase::after {
+      bottom: 4px;
+      transform: rotate(180deg);
+      opacity: 0.78;
+    }
+
+    .logo-canva {
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00c4cc, #7d2ae8);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-style: italic;
+    }
+
+    .logo-xampp {
+      border-radius: 8px;
+      background: #fb7a24;
+      color: white;
+      font-size: 28px;
+    }
+
+    .logo-word {
+      border-radius: 6px;
+      background: linear-gradient(90deg, #185abd, #2b7cd3);
+      font-size: 26px;
+    }
+
+    .logo-powerpoint {
+      border-radius: 50%;
+      background: linear-gradient(90deg, #c43e1c, #e87942);
+      font-size: 27px;
+    }
+
+    .logo-sheets {
+      position: relative;
+      border-radius: 6px;
+      background: #23a566;
+      font-size: 0;
+    }
+
+    .logo-sheets::before {
+      content: "";
+      width: 33px;
+      height: 28px;
+      border: 4px solid white;
+      border-radius: 2px;
+      background:
+        linear-gradient(white, white) 0 50% / 100% 4px no-repeat,
+        linear-gradient(90deg, white, white) 50% 0 / 4px 100% no-repeat;
+    }
+
+    .tools-decoration {
+      position: absolute;
+      right: -44px;
+      bottom: -50px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: var(--butter);
+      opacity: 0.74;
+    }
+
+    .tools-pencil {
+      position: absolute;
+      left: 34px;
+      bottom: 42px;
+      width: 26px;
+      height: 152px;
+      border-radius: 999px;
+      background: #83a3d5;
+      transform: rotate(42deg);
+      box-shadow: 0 16px 34px rgba(83, 80, 86, 0.14);
+    }
+
+    .tools-pencil::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 1px;
+      width: 24px;
+      height: 34px;
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      background: #24222a;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      overflow: hidden;
+      background: white;
+    }
+
+    .project-shot {
+      display: grid;
+      min-height: 100%;
+      padding: 16px;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(174, 184, 115, 0.28), rgba(239, 184, 197, 0.34)),
+        #f7f3ef;
+      color: rgba(111, 106, 112, 0.72);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .project-shot img {
+      width: auto;
+      max-width: 100%;
+      max-height: 250px;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 14px 28px rgba(95, 85, 70, 0.16);
+    }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-content ul {
+      display: grid;
+      gap: 7px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-content li {
+      position: relative;
+      padding-left: 17px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .project-content li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    .experience-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-card {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 190px;
+      gap: 22px;
+      padding: 22px;
+      background: white;
+    }
+
+    .experience-photo {
+      display: grid;
+      min-height: 132px;
+      place-items: center;
+      border: 1px dashed rgba(157, 99, 113, 0.38);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(239, 184, 197, 0.22), rgba(242, 239, 160, 0.28)),
+        #fffaf4;
+      color: #b98391;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .experience-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 132px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .date {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--pink-soft);
+      color: #9d6371;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .contact-panel {
+      padding: 34px;
+      background: var(--pink-soft);
+      text-align: center;
+    }
+
+    .contact-panel h2 {
+      color: white;
+      text-shadow: 0 3px 0 rgba(208, 148, 162, 0.32);
+    }
+
+    .contact-panel p {
+      max-width: 650px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .contact-links {
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    footer {
+      padding: 22px 28px 34px;
+      color: #87806f;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 14px 36px rgba(75, 70, 62, 0.08);
+    }
+
+    @media (max-width: 940px) {
+      .tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 12px;
+      }
+
+      .tabs a {
+        min-width: max-content;
+      }
+
+      .hero-title {
+        left: 34px;
+        top: 62px;
+      }
+
+      .profile-photo {
+        left: 42px;
+      }
+
+      .hero-body,
+      .section-head,
+      .skills-layout,
+      .skill-columns,
+      .projects-grid,
+      .project-card,
+      .experience-card {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 18px, 1120px);
+        margin-top: 16px;
+      }
+
+      .resume-board {
+        border-width: 7px;
+        border-radius: 34px;
+      }
+
+      .hero,
+      section {
+        padding: 18px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-cover,
+      .hero-cover img {
+        min-height: 260px;
+        height: 260px;
+      }
+
+      .hero-title {
+        left: 22px;
+        right: 22px;
+        top: 42px;
+      }
+
+      h1 {
+        font-size: clamp(43px, 17vw, 68px);
+      }
+
+      .profile-photo {
+        left: 28px;
+        top: 210px;
+        width: 132px;
+        height: 132px;
+        border-width: 7px;
+      }
+
+      .hero-body {
+        padding: 16px 0 0;
+      }
+
+      .cream-band {
+        margin: 0 12px;
+      }
+
+      .button-row .button,
+      .contact-links .button {
+        width: 100%;
+      }
+
+      .project-shot {
+        min-height: 220px;
+      }
+
+      .tools-card {
+        min-height: 250px;
+      }
+
+      .tool-logo-grid {
+        margin-top: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="tabs" aria-label="Navigasi utama">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main class="resume-board" id="home">
+      <section class="hero" id="about">
+        <div class="hero-cover">
+          <img src="header.jpg" alt="Foto Claudea Cahaya Cinta">
+          <div class="hero-title">
+            <h1>Claudea Cahaya Cinta</h1>
+            <div class="subtitle">Teknik Informatika</div>
+          </div>
+        </div>
+
+        <div class="profile-photo">
+          <img src="claudea_profile.jpeg" alt="Foto profil Claudea Cahaya Cinta">
+        </div>
+
+        <div class="hero-body">
+          <div class="intro-panel">
+            <article class="intro-copy card">
+              <span class="label">About Me</span>
+              <p>Mahasiswa Semester 6 Program Studi Teknik Informatika Universitas Duta Bangsa Surakarta. Memiliki minat pada bidang Web Development, baik frontend maupun backend. Menguasai dasar-dasar pengembangan aplikasi berbasis web dan terus mengembangkan keterampilan melalui berbagai proyek serta proses pembelajaran.</p>
+              <p>Mampu bekerja secara individu maupun dalam tim, mudah beradaptasi, serta bertanggung jawab dalam menyelesaikan setiap pekerjaan.</p>
+              <div class="button-row">
+                <a class="button" href="CLAUDEA_CAHAYA_CV.pdf" download>Download CV</a>
+                <a class="button secondary" href="#projects">Lihat Project</a>
+              </div>
+            </article>
+
+          </div>
+
+          <aside class="edu-pop">
+            <h3>Education</h3>
+            <div class="edu-item">
+              <strong>Universitas Duta Bangsa</strong>
+              <span>Program Studi Teknik Informatika, Fakultas Ilmu Komputer. 2023 - Sekarang.</span>
+            </div>
+            <div class="edu-item">
+              <strong>MAN Sukoharjo</strong>
+              <span>Jurusan Ilmu Pengetahuan Alam. 2020 - 2023.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="cream-band" id="skills">
+        <div class="section-head">
+          <div>
+            <span class="label">Skills</span>
+            <h2>Kemampuan</h2>
+          </div>
+        </div>
+
+        <div class="skills-layout">
+          <article class="skill-list-card card">
+            <div class="skill-columns">
+              <div class="mini-list">
+                <h3>Technical skills</h3>
+                <ul>
+                  <li>Web Development</li>
+                  <li>Mobile App Development</li>
+                  <li>UI/UX Design</li>
+                  <li>Database Management</li>
+                  <li>Programming</li>
+                </ul>
+              </div>
+              <div class="mini-list">
+                <h3>Soft skills</h3>
+                <ul>
+                  <li>Komunikasi</li>
+                  <li>Kerja Tim</li>
+                  <li>Manajemen Waktu</li>
+                  <li>Problem Solving</li>
+                  <li>Adaptability</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="tools-card card">
+            <span class="label">Tools</span>
+            <h3>Tools yang Digunakan</h3>
+            <img class="tool-logo-grid" src="tools.png" alt="Logo tools yang digunakan">
+            <div class="tools-decoration"></div>
+            <div class="tools-pencil"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head">
+          <div>
+            <span class="label">Projects</span>
+            <h2>Project Pilihan</h2>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card card">
+            <div class="project-shot">
+              <img src="project-makan-apa-preview.png" alt="Preview aplikasi Mau Makan Apa Hari Ini">
+            </div>
+            <div class="project-content">
+              <span class="label">Mobile App Development</span>
+              <h3>Aplikasi Pemesanan Makanan - Makan Apa?</h3>
+              <p>Aplikasi rekomendasi menu makanan dan pencatatan pengeluaran harian menggunakan Flutter dengan tampilan sederhana dan mudah digunakan.</p>
+              <ul>
+                <li>Dibangun menggunakan Flutter dan Dart.</li>
+                <li>Memiliki fitur rekomendasi menu makanan.</li>
+              
+                <li>Menggunakan supabase sebagai penyimpanan database</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card card">
+            <div class="project-shot">
+              <img src="obat.jpeg" alt="Preview sistem pencatatan obat">
+            </div>
+            <div class="project-content">
+              <span class="label">Java</span>
+              <h3>Sistem Pencatatan Obat</h3>
+              <p>Membuat sistem pencatatan obat menggunakan Java NetBeans</p>
+              <ul>
+                <li>Mengimplementasikan operasi CRUD</li>
+                <li>Menggunakan MySQL sebagai database untuk menyimpan data</li>
+                <li>Mencetak laporan data obat pasien dalam bentuk pdf.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card card">
+            <div class="project-shot">
+              <img src="rentalmobil.png" alt="Preview rentalmobil">
+            </div>
+            <div class="project-content">
+              <span class="label">Web Development</span>
+              <h3>Website Rental Mobil</h3>
+              <p>Pembuatan website rental mobil sebagai projek UAS  pengembangan web menggunakan HTML, CSS, dan MySQL.</p>
+              <ul>
+                <li>Halaman Dashboard</li>
+                <li>Struktur web dibuat dengan HTML dan CSS.</li>
+                <li>Backend sederhana menggunakan PHP dan MySQL.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card card">
+            <div class="project-shot">
+              <img src="kas.png" alt="Preview keuangan ormawa">
+            </div>
+            <div class="project-content">
+              <span class="label">Finance Web App</span>
+              <h3>Aplikasi Pencatatan Keuangan Organisasi</h3>
+              <p>Aplikasi web untuk membantu bendahara mencatat transaksi, memantau saldo, mengelola pos dana, dan mengecek kas anggota.</p>
+              <ul>
+                <li>Perhitungan Saldo Real-time.</li>
+                <li>Perhitungan Otomatis Kekurangan Kas Anggota.</li>
+                <li>Filter Riwayat Transaksi.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cream-band" id="experience">
+        <div class="section-head">
+          <div>
+            <span class="label">Experience Organization</span>
+            <h2>Pengalaman Organisasi</h2>
+          </div>
+        
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card card">
+            <div><span class="date">2023 - Sekarang</span></div>
+            <div>
+              <h3>Bendahara - BEM Fakultas Ilmu Komputer UDB</h3>
+              <p>Mengelola dan mencatat seluruh kegiatan keuangan organisasi, mulai dari penyusunan anggaran hingga laporan keuangan.</p>
+              <li>Menjadi Bendahara Seminar Pekan Kreativitas Mahasiswa 2023</li>
+              <li>Menjadi Bendahara Lomba Musik tingkat SM/SMK Solo Raya 2024</li>
+              <li>Menjadi Bendahara Lomba Mobile Legend Solo Raya 2025</li>
+              <li>Menjadi Bendahara Kegiatan Study Banding Bersama BEM FTB Universitas Atma Jaya Yogyakarta 2026</li>
+            </div>
+             <img src="bem.jpeg" alt="bem">
+          </article>
+
+          <article class="experience-card card">
+            <div><span class="date">2025 - Sekarang</span></div>
+            <div>
+              <h3>Bendahara - Komunitas Sekolah Angsana</h3>
+              <p>Bertanggung jawab dalam penyusunan anggaran kegiatan komunitas, pencatatan pemasukan dan pengeluaran, serta menjaga transparansi keuangan.</p>
+              <li>Berpartisipasi dalam kegiatan mengajar bersama DEMA FEBI UIN Raden Mas Said di SDN Kamal, Bulu Sukoharjo.</li>
+              <li>Berpartisipasi dalam kegiatan mengajar di SDN Tempel, Kartasura.</li>
+            </div>
+            <img src="tempel.jpeg" alt="kamal">
+          </article>
+
+          <article class="experience-card card">
+            <div><span class="date">2025 - Sekarang</span></div>
+            <div>
+              <h3>Kepala Divisi Personalia - Komunitas Senyum Anak Nusantara Solo</h3>
+              <p>Mengelola anggota organisasi mulai dari pengawasan, pendataan, hingga perizinan. Menjaga koordinasi internal agar berjalan efektif, membantu perekrutan dan pendampingan anggota.</p>
+              <li>Menjadi sie acara sekaligus MC pada kegiatan Ekspedisi Merah Putih di Panti Asuhan Darul Falah sukoharjo 2025</li>
+              <li>Menjadi wakil ketua pada kegiatan Senyum Anak Nusantarayang dilaksanakan di rusun Nawa Begalon Surakarta 2025</li>
+            </div>
+            <img src="ssn.jpeg" alt="kamal">
+          </article>
+
+          <article class="experience-card card">
+            <div><span class="date">2025</span></div>
+            <div>
+              <h3>Divisi Sosial YOT Solo</h3>
+              <p>Berperan aktif dalam mendukung program-program yang berorientasi pada pengabdian masyarakat, edukasi, dan peningkatan kepedulian sosial.</p>
+              <li> Menjadi Kepala Divisi Sie Acara pada event seminar "From Stress To Stregth" yang bertanggung jawab atas perencanaan dan pelaksanaan acara, termasuk koordinasi serta pengawasan anggota tim agar kegiatan berjalan lancar.</li>
+              <li> Menjadi Humas dalam acara workshop esai bersama yoters Bandung dengan judul "Shapping Youth Creativity Through Wrtiting"</li>
+            </div>
+            <img src="sertif.jpeg" alt="kamal">
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-panel card">
+          <span class="label">Contact</span>
+          <h2>Hubungi saya</h2>
+        
+          <div class="contact-links">
+            <a class="button" href="mailto:cahayaclau@gmail.com">cahayaclau@gmail.com</a>
+            <a class="button secondary" href="https://wa.me/6282220737184" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/claudea-cahaya-cinta" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="button secondary" href="https://github.com/claudeacahaya" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>Claudea Cahaya Cinta - Portofolio 2026</footer>
+    </main>
+  </div>
+</body>
+</html>
