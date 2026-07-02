@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portofolio - Claudea Cahaya Cinta</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    :root {
+      --ink: #2d2430;
+      --muted: #766977;
+      --rose: #b76e79;
+      --rose-soft: #f7e7ec;
+      --rose-pale: #fcf6f8;
+      --line: #eadce2;
+      --paper: #fffdfd;
+      --charcoal: #403744;
+      --sage: #7c8a7a;
+      --gold: #b59a62;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #ece8ea;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(247, 231, 236, 0.72), rgba(255, 253, 253, 0) 42%),
+        var(--paper);
+      page-break-after: always;
+      padding: 24mm 22mm;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6mm;
+      height: 100%;
+      background: linear-gradient(180deg, #dca8b2, #b76e79 52%, #8f6670);
+    }
+
+    .page-number {
+      position: absolute;
+      right: 22mm;
+      bottom: 12mm;
+      color: #a99aa3;
+      font-size: 9pt;
+      letter-spacing: 0.08em;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--rose);
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 150mm;
+      margin-bottom: 8mm;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42pt;
+      line-height: 0.98;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    h2 {
+      margin-bottom: 8mm;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25pt;
+      line-height: 1.05;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    h3 {
+      margin-bottom: 3mm;
+      font-size: 12.5pt;
+      line-height: 1.25;
+      color: var(--charcoal);
+    }
+
+    p {
+      margin-bottom: 4.2mm;
+      color: var(--muted);
+      font-size: 10.5pt;
+      line-height: 1.58;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 28mm;
+      padding-bottom: 24mm;
+    }
+
+    .cover-mark {
+      position: absolute;
+      right: -18mm;
+      top: 24mm;
+      width: 86mm;
+      height: 86mm;
+      border: 1px solid rgba(183, 110, 121, 0.28);
+      border-radius: 50%;
+    }
+
+    .cover-mark::after {
+      content: "";
+      position: absolute;
+      inset: 11mm;
+      border: 1px solid rgba(183, 110, 121, 0.34);
+      border-radius: 50%;
+    }
+
+    .subtitle {
+      max-width: 132mm;
+      color: var(--charcoal);
+      font-size: 13pt;
+      line-height: 1.55;
+    }
+
+    .contact-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
+      border-top: 1px solid var(--line);
+      padding-top: 8mm;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 1.5mm;
+      color: var(--rose);
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-strip span:last-child,
+    .meta-card strong,
+    .stat strong {
+      color: var(--ink);
+      font-size: 10pt;
+      line-height: 1.35;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 12mm;
+      align-items: start;
+    }
+
+    .section-rule {
+      width: 24mm;
+      height: 1px;
+      margin: 0 0 8mm;
+      background: var(--rose);
+    }
+
+    .meta-grid {
+      display: grid;
+      gap: 4mm;
+    }
+
+    .meta-card,
+    .soft-card,
+    .project-card,
+    .timeline-item,
+    .stat {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 12px 34px rgba(94, 60, 75, 0.05);
+    }
+
+    .meta-card {
+      padding: 5mm;
+      border-radius: 5mm;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 5mm;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 5mm 6mm 5mm 7mm;
+      border-radius: 4mm;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5mm;
+      bottom: 5mm;
+      width: 1.4mm;
+      border-radius: 9px;
+      background: var(--rose);
+    }
+
+    .timeline-item .date {
+      margin-bottom: 1.5mm;
+      color: var(--rose);
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item p {
+      margin-bottom: 0;
+      font-size: 9.6pt;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5mm;
+    }
+
+    .soft-card {
+      min-height: 31mm;
+      padding: 5mm;
+      border-radius: 5mm;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5mm;
+      margin-top: 2mm;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 8mm;
+      border: 1px solid rgba(183, 110, 121, 0.26);
+      border-radius: 99px;
+      padding: 1.5mm 3.4mm;
+      background: var(--rose-pale);
+      color: var(--charcoal);
+      font-size: 8.8pt;
+      font-weight: 600;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 35mm 1fr;
+      gap: 6mm;
+      padding: 6mm;
+      border-radius: 5mm;
+      margin-bottom: 5mm;
+    }
+
+    .project-code {
+      display: flex;
+      width: 28mm;
+      height: 28mm;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f7e7ec, #ffffff);
+      color: var(--rose);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18pt;
+      border: 1px solid rgba(183, 110, 121, 0.24);
+    }
+
+    .project-card p {
+      margin-bottom: 2mm;
+      font-size: 9.6pt;
+    }
+
+    .project-meta {
+      margin-bottom: 2.5mm;
+      color: var(--sage);
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4mm;
+      margin: 4mm 0 7mm;
+    }
+
+    .stat {
+      min-height: 26mm;
+      border-radius: 4mm;
+      padding: 4mm;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-size: 13pt;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 8.8pt;
+      line-height: 1.4;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3mm 6mm;
+      margin: 4mm 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 5mm;
+      color: var(--muted);
+      font-size: 9.2pt;
+      line-height: 1.42;
+    }
+
+    .feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 2mm;
+      width: 2.1mm;
+      height: 2.1mm;
+      border-radius: 50%;
+      background: var(--rose);
+    }
+
+    .quote {
+      margin-top: 8mm;
+      border-left: 1.2mm solid var(--rose);
+      padding-left: 6mm;
+      color: var(--charcoal);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16pt;
+      line-height: 1.35;
+    }
+
+    .closing {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .closing h2 {
+      font-size: 34pt;
+    }
+
+    .closing .contact-strip {
+      margin-top: 16mm;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="cover-mark"></div>
+    <div>
+      <p class="kicker">Portfolio 2026</p>
+      <h1>Claudea Cahaya Cinta</h1>
+      <p class="subtitle">Mahasiswa Teknik Informatika dengan fokus pada pengembangan web, aplikasi, dan desain antarmuka. Terbiasa memadukan kemampuan teknis, koordinasi organisasi, serta ketelitian administrasi keuangan.</p>
+    </div>
+    <div class="contact-strip">
+      <div><span class="label">Phone</span><span>0822-2073-7184</span></div>
+      <div><span class="label">Email</span><span>cahayaclau@gmail.com</span></div>
+      <div><span class="label">LinkedIn</span><span>linkedin.com/in/claudea-cahaya-cinta</span></div>
+    </div>
+    <div class="page-number">01</div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Profile</p>
+    <h2>Tentang Saya</h2>
+    <div class="section-rule"></div>
+    <div class="two-col">
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span class="label">Pendidikan</span>
+          <strong>Universitas Duta Bangsa Surakarta</strong>
+          <p>Program Studi Teknik Informatika, Fakultas Ilmu Komputer. 2023 - Sekarang.</p>
+        </div>
+        <div class="meta-card">
+          <span class="label">Sebelumnya</span>
+          <strong>MAN Sukoharjo</strong>
+          <p>Jurusan Ilmu Pengetahuan Alam. 2020 - 2023.</p>
+        </div>
+        <div class="meta-card">
+          <span class="label">Fokus</span>
+          <strong>Web Development, UI/UX, dan Administrasi Digital</strong>
+          <p>Membangun solusi sederhana yang rapi, mudah digunakan, dan membantu aktivitas organisasi.</p>
+        </div>
+      </div>
+      <div>
+        <p>Saya merupakan mahasiswa aktif Teknik Informatika yang memiliki minat pada pengembangan aplikasi berbasis web, khususnya pada sisi frontend, backend sederhana, dan pengalaman pengguna. Dalam proses belajar, saya terbiasa mengerjakan proyek akademik maupun mandiri menggunakan HTML, CSS, PHP, Flutter, Python, Java, MySQL, Figma, dan Canva.</p>
+        <p>Selain sisi teknis, pengalaman organisasi sebagai bendahara dan pengelola anggota membentuk cara kerja yang teliti, terstruktur, dan bertanggung jawab. Saya terbiasa mencatat pemasukan dan pengeluaran, menyusun anggaran kegiatan, mendukung koordinasi antar divisi, serta memastikan informasi keuangan dapat dipahami oleh tim.</p>
+        <p class="quote">Membangun sistem bukan hanya soal fitur, tetapi juga tentang membuat pekerjaan tim menjadi lebih jelas, tertib, dan mudah dijalankan.</p>
+      </div>
+    </div>
+    <div class="page-number">02</div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Experience</p>
+    <h2>Pengalaman Organisasi</h2>
+    <div class="section-rule"></div>
+    <div class="timeline">
+      <article class="timeline-item">
+        <div class="date">2023 - Sekarang</div>
+        <h3>Bendahara - BEM Fakultas Ilmu Komputer UDB</h3>
+        <p>Mengelola dan mencatat kegiatan keuangan organisasi, menyusun anggaran, menyiapkan laporan, serta berkoordinasi dengan divisi lain dalam pelaksanaan program kerja seperti seminar, lomba Mobile Legends, dan lomba musik.</p>
+      </article>
+      <article class="timeline-item">
+        <div class="date">2025 - Sekarang</div>
+        <h3>Bendahara - Komunitas Sekolah Angsana</h3>
+        <p>Bertanggung jawab pada penyusunan anggaran kegiatan komunitas, pencatatan pemasukan dan pengeluaran, serta menjaga transparansi keuangan pada program sosial dan kegiatan mengajar.</p>
+      </article>
+      <article class="timeline-item">
+        <div class="date">2025 - Sekarang</div>
+        <h3>Kepala Divisi Personalia - Komunitas Senyum Anak Nusantara Solo</h3>
+        <p>Mengelola pendataan, koordinasi, pengawasan, dan perizinan anggota. Turut mendukung program Ekspedisi Merah Putih dan Sunday Nusantara melalui peran operasional serta komunikasi internal.</p>
+      </article>
+      <article class="timeline-item">
+        <div class="date">2025</div>
+        <h3>Kepala Divisi Acara - YOT Project Collab</h3>
+        <p>Mengatur perencanaan acara, pembagian tugas tim, koordinasi pelaksanaan, dan pengawasan kegiatan agar program berjalan lancar sesuai tujuan proyek.</p>
+      </article>
+    </div>
+    <div class="page-number">03</div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Capabilities</p>
+    <h2>Kemampuan</h2>
+    <div class="section-rule"></div>
+    <div class="skill-grid">
+      <article class="soft-card">
+        <span class="label">Programming</span>
+        <h3>Bahasa & Framework</h3>
+        <div class="pill-row">
+          <span class="pill">Flutter</span>
+          <span class="pill">Dart</span>
+          <span class="pill">Java</span>
+          <span class="pill">Python</span>
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">PHP</span>
+        </div>
+      </article>
+      <article class="soft-card">
+        <span class="label">Database</span>
+        <h3>Data & Backend</h3>
+        <div class="pill-row">
+          <span class="pill">MySQL</span>
+          <span class="pill">XAMPP</span>
+          <span class="pill">Flask</span>
+          <span class="pill">JSON Storage</span>
+          <span class="pill">CRUD</span>
+        </div>
+      </article>
+      <article class="soft-card">
+        <span class="label">Design</span>
+        <h3>UI/UX & Tools</h3>
+        <div class="pill-row">
+          <span class="pill">Figma</span>
+          <span class="pill">Canva</span>
+          <span class="pill">VS Code</span>
+          <span class="pill">Microsoft Office</span>
+        </div>
+      </article>
+      <article class="soft-card">
+        <span class="label">Professional</span>
+        <h3>Soft Skills</h3>
+        <div class="pill-row">
+          <span class="pill">Leadership</span>
+          <span class="pill">Team Coordination</span>
+          <span class="pill">Communication</span>
+          <span class="pill">Time Management</span>
+          <span class="pill">Problem Solving</span>
+        </div>
+      </article>
+    </div>
+    <p class="quote">Kombinasi kemampuan teknis dan pengalaman organisasi membantu saya memahami kebutuhan pengguna, alur kerja tim, serta pentingnya dokumentasi yang rapi.</p>
+    <div class="page-number">04</div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Selected Projects</p>
+    <h2>Proyek Pilihan</h2>
+    <div class="section-rule"></div>
+    <article class="project-card">
+      <div class="project-code">01</div>
+      <div>
+        <div class="project-meta">Mobile App - Flutter</div>
+        <h3>Aplikasi Pemesanan & Rekomendasi Makanan - Makan Apa?</h3>
+        <p>Membuat aplikasi rekomendasi menu makanan dan pencatatan pengeluaran harian dengan tampilan sederhana, ringan, dan mudah digunakan.</p>
+        <ul class="feature-list">
+          <li>Rekomendasi menu makanan untuk membantu pengguna memilih hidangan.</li>
+          <li>Pencatatan pengeluaran harian sebagai latihan pengelolaan data sederhana.</li>
+          <li>Antarmuka mobile yang ringkas dan mudah dipahami.</li>
+          <li>Dibangun menggunakan Flutter dan Dart.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="project-card">
+      <div class="project-code">02</div>
+      <div>
+        <div class="project-meta">UI/UX Design - Figma</div>
+        <h3>Design Web Layanan Kesehatan</h3>
+        <p>Mendesain konsep website layanan kesehatan yang menekankan navigasi jelas, informasi mudah dicari, dan tampilan yang bersih untuk pengguna umum.</p>
+        <ul class="feature-list">
+          <li>Struktur halaman dirancang untuk kebutuhan informasi layanan.</li>
+          <li>Layout dibuat sederhana agar mudah dipindai.</li>
+          <li>Menggunakan Figma untuk eksplorasi tampilan dan alur pengguna.</li>
+          <li>Menjaga visual tetap profesional dan ramah pengguna.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="project-card">
+      <div class="project-code">03</div>
+      <div>
+        <div class="project-meta">Web Development - HTML, CSS, PHP</div>
+        <h3>Website Rental Mobil</h3>
+        <p>Membuat website rental mobil sebagai latihan pengembangan web dasar, mulai dari penyusunan halaman, tampilan layanan, hingga pengelolaan konten berbasis web.</p>
+        <ul class="feature-list">
+          <li>Halaman layanan dan informasi kendaraan.</li>
+          <li>Struktur HTML dan styling CSS untuk tampilan web.</li>
+          <li>Penggunaan PHP dan XAMPP pada pengembangan lokal.</li>
+          <li>Fokus pada tampilan yang jelas dan fungsional.</li>
+        </ul>
+      </div>
+    </article>
+    <div class="page-number">05</div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Case Study</p>
+    <h2>Aplikasi Pencatatan Keuangan Organisasi</h2>
+    <div class="section-rule"></div>
+    <p>Aplikasi web ini dibuat untuk membantu organisasi mencatat transaksi, memantau saldo, serta mengelola kas anggota secara lebih tertib. Konsepnya berangkat dari kebutuhan bendahara dalam menyajikan informasi keuangan yang mudah dibaca dan dapat ditelusuri kembali.</p>
+    <div class="impact-grid">
+      <div class="stat"><strong>2 Pos Dana</strong><span>Kas Organisasi dan Dana Ormawa dipisahkan agar ringkasan lebih jelas.</span></div>
+      <div class="stat"><strong>CRUD</strong><span>Transaksi dapat ditambah, diedit, dihapus, dan difilter berdasarkan tanggal.</span></div>
+      <div class="stat"><strong>Kas Anggota</strong><span>Pembayaran anggota dipantau per bulan dari Oktober 2025 sampai November 2026.</span></div>
+    </div>
+    <article class="project-card">
+      <div class="project-code">04</div>
+      <div>
+        <div class="project-meta">Flask - Python - HTML - CSS - JSON</div>
+        <h3>Dashboard Keuangan Organisasi</h3>
+        <p>Dashboard menampilkan saldo akhir, total pemasukan, total pengeluaran, dan total kas anggota. Setiap pos dana memiliki ringkasan pemasukan, pengeluaran, dan saldo, sehingga bendahara dapat melihat kondisi keuangan tanpa menghitung manual.</p>
+        <ul class="feature-list">
+          <li>Ringkasan saldo otomatis dari transaksi masuk dan keluar.</li>
+          <li>Pemisahan laporan berdasarkan pos dana.</li>
+          <li>Filter tanggal untuk mengecek transaksi tertentu.</li>
+          <li>Badge pemasukan dan pengeluaran agar tabel mudah dipindai.</li>
+          <li>Form tambah dan edit transaksi dengan field tipe, nominal, tanggal, keterangan, dan pos dana.</li>
+          <li>Penyimpanan data sederhana menggunakan file JSON.</li>
+        </ul>
+      </div>
+    </article>
+    <p class="quote">Peran utama proyek ini adalah menjembatani kebutuhan administrasi organisasi dengan sistem digital yang sederhana, transparan, dan mudah dioperasikan.</p>
+    <div class="page-number">06</div>
+  </section>
+
+  <section class="page">
+    <p class="kicker">Finance Project Details</p>
+    <h2>Alur Sistem Keuangan</h2>
+    <div class="section-rule"></div>
+    <div class="timeline">
+      <article class="timeline-item">
+        <div class="date">Input Data</div>
+        <h3>Transaksi dicatat melalui form</h3>
+        <p>Pengguna memasukkan tipe transaksi, nominal, keterangan, tanggal, dan pos dana. Data kemudian disimpan dan langsung memengaruhi ringkasan dashboard.</p>
+      </article>
+      <article class="timeline-item">
+        <div class="date">Monitoring</div>
+        <h3>Dashboard menghitung ringkasan otomatis</h3>
+        <p>Sistem menjumlahkan pemasukan, pengeluaran, saldo akhir, serta ringkasan per pos dana agar laporan lebih cepat dibaca.</p>
+      </article>
+      <article class="timeline-item">
+        <div class="date">Kas Anggota</div>
+        <h3>Pembayaran bulanan dapat ditandai lunas</h3>
+        <p>Daftar anggota dan bulan pembayaran ditampilkan dalam tabel. Saat satu bulan dicentang, sistem membantu menandai pembayaran sebelumnya untuk anggota yang sama, sehingga proses pencatatan lebih efisien.</p>
+      </article>
+      <article class="timeline-item">
+        <div class="date">Output</div>
+        <h3>Informasi siap digunakan untuk evaluasi</h3>
+        <p>Bendahara dapat menggunakan data ringkasan untuk laporan kegiatan, evaluasi kas, dan koordinasi dengan pengurus lain.</p>
+      </article>
+    </div>
+    <div class="page-number">07</div>
+  </section>
+
+  <section class="page closing">
+    <p class="kicker">Closing</p>
+    <h2>Terima Kasih</h2>
+    <div class="section-rule"></div>
+    <p class="subtitle">Portofolio ini merangkum pengalaman akademik, organisasi, dan proyek yang saya kerjakan dalam bidang teknologi serta administrasi digital. Saya terbuka untuk kesempatan belajar, kolaborasi, magang, maupun proyek yang mendukung pengembangan kemampuan teknis dan profesional.</p>
+    <div class="contact-strip">
+      <div><span class="label">Phone</span><span>0822-2073-7184</span></div>
+      <div><span class="label">Email</span><span>cahayaclau@gmail.com</span></div>
+      <div><span class="label">LinkedIn</span><span>linkedin.com/in/claudea-cahaya-cinta</span></div>
+    </div>
+    <div class="page-number">08</div>
+  </section>
+</body>
+</html>
